@@ -1,25 +1,15 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom"
-import { createGlobalStyle } from 'styled-components'
 import styled from 'styled-components'
 import Todos from './Todos'
 import Favoritos from './Favoritos'
 import Vistos from './Vistos'
+import Adicionados from './Adicionados'
 import Login from '../img/Login.png'
 import Lupa from '../img/Icon.png'
 
-const GlobalStyle = createGlobalStyle`
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style:none;
-  text-decoration:none;
-  color: white;
-}
-`
 const Container = styled.section`
-  background-color: #000000;
+  background-color: #000000; 
   display:flex;
   height: 100% 
 `
@@ -27,6 +17,7 @@ const Menu = styled.ul`
   display:flex;
   width: 30vw;
   height: 10vh;
+  padding-left: 2vh;
   justify-content: space-evenly;
   align-items: center;
 `
@@ -41,26 +32,35 @@ const Subtitle = styled.li`
    font-size: 2.2vh;
 `
 const Details = styled.details`
-   display: flex; 
-   flex-direction: column;
+   width: 15vw;
 `
 const Summary = styled.summary`
-   color: #FFFFFF;
+   display:flex;
    font-family: 'Lato', sans-serif;
    font-size: 2.2vh;
-   font-weight: bolder;
+    &:hover{
+      font-weight: bolder;
+      cursor: pointer;
+    }
+     p {
+      padding-left: 0.5vw;
+     }
 `
 const Contlist = styled.ul`
   background-color: #000000;
-  margin-top: 20vh;
-  height: 15vh;
-  width: 8vw;
   display: flex; 
   flex-direction: column;
   justify-content: space-evenly;
+  position: absolute;
+  width: 10vw;
+  height: 22vh;
    li {
-       &hover: 
-       cursor: point;
+    font-family: 'Lato', sans-serif;
+    font-size: 2.5vh;
+       &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+       }
    }
 `
 const Navegation = styled.nav`
@@ -86,24 +86,34 @@ const Busca = styled.input`
    border: none;
    height: 5vh;
    width: 25vw;
+   padding-left: 2.2vw;
    border-radius: 2px;
    background-image: url(${Lupa});
    background-repeat:no-repeat;
    background-position-y: center;
    background-position-x: 8px;
 `
+const Box = styled.div`
+   display:flex;
+   width: 3.5vw;
+   align-items: center;
+   justify-content:center;
+`
+const Image = styled.img`
+   margin-right: 0.5vw;
+`
+
 export default class Header extends Component {
     render() {
         return (
             <Router>
-                <GlobalStyle />
                 <Container>
                     <nav>
                         <Menu>
                             <Title>Todoflix</Title>
-                            <Subtitle>Início</Subtitle>
+                            <Subtitle>Início </Subtitle>
                             <Details>
-                                <Summary>Categorias</Summary>
+                                <Summary>Categorias <p>&#9662;</p></Summary>
                                 <Contlist>
                                     <li>
                                         <Link to='/todos'>Todos</Link>
@@ -114,20 +124,27 @@ export default class Header extends Component {
                                     <li>
                                         <Link to='/vistos'>Já vistos</Link>
                                     </li>
+                                    <li>
+                                        <Link to='/adicionados'>Adicionados</Link>
+                                    </li>
                                 </Contlist>
                             </Details>
                         </Menu>
                     </nav>
                     <Navegation>
                         <Add>Adicionar Filme</Add>
-                        <Busca type='text' placeholder='         Pesquisar'/>
-                        <img src={Login} />
+                        <Busca type='text' placeholder='Pesquisar'/>
+                        <Box>
+                        <Image src={Login} /> 
+                        <p>&#9662;</p>
+                        </Box>
                     </Navegation>
                 </Container>
                 <Routes>
                     <Route path='/todos' element={<Todos />} />
                     <Route path='/favoritos' element={<Favoritos />} />
                     <Route path='/vistos' element={<Vistos />} />
+                    <Route path='/adicionados' element={<Adicionados />} />
                 </Routes>
             </Router>
 
