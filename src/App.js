@@ -7,7 +7,6 @@ import Vistos from './pages/Vistos'
 import Adicionados from './pages/Adicionados'
 import Login from './img/Login.png'
 import Lupa from './img/Icon.png'
-import Form from './pages/FormAdd'
 import Home from './pages/Home'
 
 const Container = styled.section`
@@ -135,7 +134,6 @@ export default class Header extends Component {
           </nav>
           <Navegation>
             <Add onClick={this.handle}>Adicionar Filme</Add>
-            {this.state.open && <Form />}
             <Busca type='text' placeholder='Pesquisar' />
             <Box>
               <Image src={Login} />
