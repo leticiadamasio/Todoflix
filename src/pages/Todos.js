@@ -137,17 +137,6 @@ export default class Todos extends Component {
     },
     ]
 } 
-filter = (event) => {
-  const { listFilmes } = this.state
-  const FilmesFiltrados = listFilmes.filter((item) => {
-    if (item.title.toLowerCase().includes(event.target.value.toLowerCase())) {
-      return true;
-    }
-  })
-  this.setState({
-    filmesBuscados: FilmesFiltrados
-  })
-}
   render() {
     return (
       <LargeContainer>

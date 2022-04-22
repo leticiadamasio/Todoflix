@@ -133,7 +133,7 @@ export default class Header extends Component {
             </Menu>
           </nav>
           <Navegation>
-            <Add onClick={this.handle}>Adicionar Filme</Add>
+            <Add>Adicionar Filme</Add>
             <Busca type='text' placeholder='Pesquisar' />
             <Box>
               <Image src={Login} />
