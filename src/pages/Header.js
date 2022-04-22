@@ -7,6 +7,7 @@ import Vistos from './Vistos'
 import Adicionados from './Adicionados'
 import Login from '../img/Login.png'
 import Lupa from '../img/Icon.png'
+import Form from './FormAdd'
 
 const Container = styled.section`
   background-color: #000000; 
@@ -99,11 +100,18 @@ const Box = styled.div`
    align-items: center;
    justify-content:center;
 `
-const Image = styled.img`
+const Image = styled.Image`
    margin-right: 0.5vw;
 `
 
 export default class Header extends Component {
+
+    state={ 
+        open: false
+    }
+    handle = () => {
+        this.setState ({open: !this.state.open})
+    }
     render() {
         return (
             <Router>
@@ -132,7 +140,8 @@ export default class Header extends Component {
                         </Menu>
                     </nav>
                     <Navegation>
-                        <Add>Adicionar Filme</Add>
+                        <Add onClick={this.handle}>Adicionar Filme</Add>
+                        {this.state.open && <Form/>}
                         <Busca type='text' placeholder='Pesquisar'/>
                         <Box>
                         <Image src={Login} /> 
