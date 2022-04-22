@@ -18,7 +18,7 @@ const LargeContainer = styled.section`
    min-height:100vh;
    height: auto;
 `
-const Container = styled.section`
+const Container = styled.div`
    background-color: #000000;
    display:flex;
    padding-top: 15vh;
@@ -155,14 +155,13 @@ export default class Main extends Component {
         ]
     }
     render() {
-
         return (
             <LargeContainer>
                 <Container>
                     <Banner src={Vingadores} alt='Poster do filme: Vingadores' />
                     <Box>
                         <img src={Heart} alt='Poster do filme: Vingadores' />
-                        <>Visto recentemente</>
+                        <p>Visto recentemente</p>
                         <Title>Os Vingadores</Title>
                         <Overview>Nas florestas do estado de Washington, um pai cria seus seis filhos longe da civilização, em uma rígida rotina de aventuras. Ele é forçado a deixar o isolamento e leva sua família para encarar o mundo, desafiando sua ideia do que significa ser pai.</Overview>
                     </Box>
