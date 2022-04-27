@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Todos from './pages/Todos'
 import Favoritos from './pages/Favoritos'
 import Vistos from './pages/Vistos'
-import Adicionados from './pages/Adicionados'
 import Login from './img/Login.png'
 import Lupa from './img/Icon.png'
 import Home from './pages/Home'
@@ -134,9 +133,6 @@ export default class Header extends Component {
                   <li>
                     <Link to='/vistos'>Já vistos</Link>
                   </li>
-                  <li>
-                    <Link to='/adicionados'>Adicionados</Link>
-                  </li>
                 </Contlist>
               </Details>
             </Menu>
@@ -155,7 +151,6 @@ export default class Header extends Component {
           <Route path='/todos' element={<Todos />} />
           <Route path='/favoritos' element={<Favoritos />} />
           <Route path='/vistos' element={<Vistos />} />
-          <Route path='/adicionados' element={<Adicionados />} />
         </Routes>
       </Router>
     )
