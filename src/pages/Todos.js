@@ -136,7 +136,7 @@ export default class Todos extends Component {
     this.movies()
   }
   movies = async () => {
-    const FilmsFilter = this.setState({
+    this.setState({
       filterFilms: this.state.movies
     })
   }

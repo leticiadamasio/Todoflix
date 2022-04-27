@@ -122,21 +122,49 @@ const Inform = styled.div`
 export default class Vistos extends Component {
   state = {
     movies: State,
+    filterFilms: []
+  }
+  async componentDidMount() {
+    this.movies()
+  }
+  movies = async () => {
+    this.setState({
+      filterFilms: this.state.movies
+    })
+  }
+  filterFilms = (e) => {
+    const { movies } = this.state
+
+    if (e.target.value === "") {
+      this.setState({
+        filterFilms: movies
+      })
+      return
+    }
+    const FilmsConvert = movies.filter((item) => {
+      if (item.title.toLowerCase().includes(e.target.value.toLowerCase())) {
+        return true
+      }
+    })
+
+    this.setState({
+      filterFilms: FilmsConvert
+    })
   }
 
   render() {
     return (
       <LargeContainer>
         <GlobalStyle />
-        <Busca type='text' placeholder='Pesquisar' />
+        <Busca type='text' placeholder='Pesquisar' onChange={this.filterFilms} />
         <Subtitle>Já vistos</Subtitle>
         <Container>
-          {this.state.movies.map((item) => (
-             <>
-              {item.IsVisto && (
+          {this.state.filterFilms.map((item) => (
+            <>
+              {item.isVisto && (
                 <Info>
                   <Image src={item.poster} alt={`Poster do filme ${item.title}`} />
-                  <Icon style={this.state.IsFavorito === false ?
+                  <Icon style={this.state.isFavorito === false ?
                     { filter: 'brightness(0.5)' } : { filter: '-shadowdrop(1px 1px 10px rgba(255,255,255,0.5))' }} src={Heart} alt='heart Icon' />
                   <Inform>
                     <Title>{item.title}</Title>
@@ -147,7 +175,7 @@ export default class Vistos extends Component {
                     </svg>
                   </Inform>
                   <Text>{item.overview}</Text>
-                  </Info>  
+                </Info>
               )}
             </>
           ))}

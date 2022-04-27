@@ -30,7 +30,7 @@ const Container = styled.div`
    justify-content: space-evenly;
 `
 const Busca = styled.input`
-   background-color: #FFFFF;
+   background-color: #2C2C2C;
    border: none;
    height: 5vh;
    width: 25vw;
@@ -128,7 +128,7 @@ export default class Favoritos extends Component {
     this.movies()
   }
   movies = async () => {
-    const FilmsFilter = this.setState({
+    this.setState({
       filterFilms: this.state.movies
     })
   }
@@ -160,10 +160,10 @@ export default class Favoritos extends Component {
         <Container>
           {this.state.filterFilms.map((item) => (
             <>
-              {item.IsFavorito && (
+              {item.isFavorito && (
                 <Info>
                   <Image src={item.poster} alt={`Poster do filme ${item.title}`} />
-                  <Icon style={this.state.IsFavorito === false ?
+                  <Icon style={this.state.isFavorito === false ?
                     { filter: 'brightness(0.5)' } : { filter: '-shadowdrop(1px 1px 10px rgba(255,255,255,0.5))' }} src={Heart} alt='heart Icon' />
                   <p>{item.IsVisto === false ? '' : 'Visto Recentemente'}</p>
                   <Inform>

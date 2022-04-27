@@ -19,7 +19,7 @@ const Container = styled.section`
     height:80vh;
     background-color: #000000;
     border: 1px solid #808080;
-    drop-shadow(1px 1px 10px rgba(255,255,255,0.5));
+    box-shadow:(1px 1px 10px rgba(255,255,255,0.5));
     position:absolute;
     top:10vh;
     left:26%;
@@ -27,6 +27,18 @@ const Container = styled.section`
 `
 const Info = styled.section`
    display: flex;
+`
+const Select = styled.label`
+   background-color: #FFFFFF;
+   color: black;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 2.4vh;
+   padding: 5px;
+   position: relative;
+   bottom: 4vh;
+   margin-left: 26.7vw;
+   border-radius: 2px;
+   cursor: pointer;
 `
 const Radio = styled.div`
    width: 25vw;
@@ -40,13 +52,6 @@ const Name = styled.label`
    padding-left: 0.3vw;
    width: 15vw;
 `
-const Select = styled.input`
-   position: relative;
-   bottom: 4.5vh;
-   margin-left: 26.7vw;
-  
-`
-
 const Box = styled.div`
     display: flex;
     flex-direction:column;
@@ -193,8 +198,8 @@ export default class App extends React.Component {
                             </Imagens>
                         </BoxImg>
                     </Info>
-                    <label for="file_upload">Selecionar Imagem</label>
-                    <Select id="file_upload" name="name_upload" type="file" accept=".png, .jpg, .jpeg"/>
+                    <Select for="file_upload">Selecionar Imagem</Select>
+                    <input id="file_upload" name="name_upload" type="file" accept=".png, .jpg, .jpeg"/>
                     <Sub>Status</Sub>
                     <Radio>
                         <input id="assisti" type="radio" name="status" value="Assisti" />
