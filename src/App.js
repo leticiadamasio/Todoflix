@@ -8,6 +8,7 @@ import Adicionados from './pages/Adicionados'
 import Login from './img/Login.png'
 import Lupa from './img/Icon.png'
 import Home from './pages/Home'
+import Modal from './pages/Modal'
 
 const Container = styled.section`
   background-color: #000000; 
@@ -81,6 +82,7 @@ const Add = styled.button`
    font-family: 'Lato', sans-serif;
    font-size: 2.2vh;
    border-radius: 2px;
+   cursor: pointer;
 `
 const Busca = styled.input`
    background-color: #2C2C2C;
@@ -105,6 +107,13 @@ const Image = styled.img`
 `
 
 export default class Header extends Component {
+  state = {
+    statemodal: false,
+    butonmodal: false
+  }    
+  openmodal = () => {
+    this.setState({ statemodal: !this.state.statemodal })
+  }
   render() {
     return (
       <Router>
@@ -112,7 +121,7 @@ export default class Header extends Component {
           <nav>
             <Menu>
               <Title>Todoflix</Title>
-              <Subtitle>Início </Subtitle>
+              <Link to='/'><Subtitle>Início </Subtitle></Link>
               <Details>
                 <Summary>Categorias <p>&#9662;</p></Summary>
                 <Contlist>
@@ -133,8 +142,8 @@ export default class Header extends Component {
             </Menu>
           </nav>
           <Navegation>
-            <Add>Adicionar Filme</Add>
-            <Busca type='text' placeholder='Pesquisar' />
+            <Add onClick={this.openmodal}>Adicionar Filme</Add> {this.state.statemodal && <Modal />} 
+            <Busca type='text' placeholder='Pesquisar'/>
             <Box>
               <Image src={Login} />
               <p>&#9662;</p>
@@ -142,12 +151,12 @@ export default class Header extends Component {
           </Navegation>
         </Container>
         <Routes>
+          <Route path='/' element={<Home />} />
           <Route path='/todos' element={<Todos />} />
           <Route path='/favoritos' element={<Favoritos />} />
           <Route path='/vistos' element={<Vistos />} />
           <Route path='/adicionados' element={<Adicionados />} />
         </Routes>
-        <Home />
       </Router>
     )
   }
