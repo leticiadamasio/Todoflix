@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/leticiadamasio/Todoflix/static/css/main.28fa5a89.css",
-    "main.js": "/leticiadamasio/Todoflix/static/js/main.bb31f237.js",
+    "main.js": "/leticiadamasio/Todoflix/static/js/main.9c1edad7.js",
     "static/js/787.fedb6192.chunk.js": "/leticiadamasio/Todoflix/static/js/787.fedb6192.chunk.js",
     "static/media/Vingadores.jpg": "/leticiadamasio/Todoflix/static/media/Vingadores.8407e3b876abe9710837.jpg",
     "index.html": "/leticiadamasio/Todoflix/index.html",
     "main.28fa5a89.css.map": "/leticiadamasio/Todoflix/static/css/main.28fa5a89.css.map",
-    "main.bb31f237.js.map": "/leticiadamasio/Todoflix/static/js/main.bb31f237.js.map",
+    "main.9c1edad7.js.map": "/leticiadamasio/Todoflix/static/js/main.9c1edad7.js.map",
     "787.fedb6192.chunk.js.map": "/leticiadamasio/Todoflix/static/js/787.fedb6192.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.28fa5a89.css",
-    "static/js/main.bb31f237.js"
+    "static/js/main.9c1edad7.js"
   ]
 }
