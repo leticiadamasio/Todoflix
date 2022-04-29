@@ -284,7 +284,7 @@ export default class Main extends Component {
                     </Box>
                 </Container>
                 <Subtitle>Destaques</Subtitle>
-                <Carousel
+                <Carousel 
                     {...info}
                     renderBottomCenterControls={false}
                     defaultControlsConfig={{
@@ -298,8 +298,7 @@ export default class Main extends Component {
                         <Info>
                             <Image
                                 src={item.poster} alt={`Poster do filme ${item.title}`} />
-                            <Icon onClick={this.handleClick} key={item.id} style={this.state.isFavorito === false ?
-                                { filter: 'brightness(0.5)' } : { filter: '-shadowdrop(1px 1px 10px rgba(255,255,255,0.5))' }} src={Heart} alt='heart Icon' />
+                            <Icon onClick={this.handleClick} style={this.state.isFavorito === false ? { filter: "brightness(0.5)" } : { filter: "drop-shadow(1px 1px 10px rgba(255,255,255,0.5))" }} src={Heart} alt='heart Icon' />
                             <p>{item.IsVisto === false ? '' : 'Visto Recentemente'}</p>
                             <Inform>
                                 <Movies>{item.title}</Movies>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { createGlobalStyle } from 'styled-components'
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom"
 import styled from 'styled-components'
 import Todos from './pages/Todos'
@@ -8,6 +9,17 @@ import Login from './img/Login.png'
 import Lupa from './img/Icon.png'
 import Home from './pages/Home'
 import Modal from './pages/Modal'
+
+const GlobalStyle = createGlobalStyle`
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style:none;
+  text-decoration:none;
+  color: white;
+}
+`
 
 const Container = styled.section`
   background-color: #000000; 
@@ -117,6 +129,7 @@ export default class Header extends Component {
     return (
       <Router>
         <Container>
+        <GlobalStyle/>
           <nav>
             <Menu>
               <Title>Todoflix</Title>

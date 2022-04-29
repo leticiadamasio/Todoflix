@@ -124,6 +124,11 @@ export default class Vistos extends Component {
     movies: State,
     filterFilms: []
   }
+  handleClick = () => {
+    this.setState({
+      IsFavorito: !this.state.IsFavorito,
+    })
+  }
   async componentDidMount() {
     this.movies()
   }
@@ -164,8 +169,7 @@ export default class Vistos extends Component {
               {item.isVisto && (
                 <Info>
                   <Image src={item.poster} alt={`Poster do filme ${item.title}`} />
-                  <Icon style={this.state.isFavorito === false ?
-                    { filter: 'brightness(0.5)' } : { filter: '-shadowdrop(1px 1px 10px rgba(255,255,255,0.5))' }} src={Heart} alt='heart Icon' />
+                  <Icon onClick={this.handleClick} style={this.state.isFavorito === false ? { filter: "brightness(0.5)" } : { filter: "drop-shadow(1px 1px 10px rgba(255,255,255,0.5))" }} src={Heart} alt='heart Icon' />
                   <Inform>
                     <Title>{item.title}</Title>
                     <p>{item.vote_average}/5</p>
