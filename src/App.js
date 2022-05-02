@@ -160,6 +160,7 @@ export default class Header extends Component {
           </Navegation>
         </Container>
         <Routes>
+          <Route path='/Todoflix' element={<Home />} />
           <Route path='/' element={<Home />} />
           <Route path='/todos' element={<Todos />} />
           <Route path='/favoritos' element={<Favoritos />} />

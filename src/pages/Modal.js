@@ -165,7 +165,7 @@ const Confirm = styled.button`
 `
 export default class App extends React.Component {
     state = {
-        statemodal: true,
+        statemodal: false,
     }    
     closemodal = () => {
         this.setState({statemodal: !this.state.statemodal })
