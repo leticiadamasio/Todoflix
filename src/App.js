@@ -9,6 +9,7 @@ import Login from './img/Login.png'
 import Lupa from './img/Icon.png'
 import Home from './pages/Home'
 import Modal from './pages/Modal'
+import App from './pages/Modal'
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -160,7 +161,7 @@ export default class Header extends Component {
           </Navegation>
         </Container>
         <Routes>
-          <Route path='/Todoflix' element={<Home />} />
+          <Route path='/Todoflix' element={<App />} />
           <Route path='/' element={<Home />} />
           <Route path='/todos' element={<Todos />} />
           <Route path='/favoritos' element={<Favoritos />} />
